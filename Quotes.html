@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #box1 {
+            width: 500px;
+            height: 70vh;
+            border: 2px solid black;
+        }
+
+        #box2 {
+            width: 500px;
+            height: 10vh;
+            border: 2px solid black;
+        }
+
+        #minbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        #box1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: aqua;
+        }
+
+        #box2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: burlywood;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="box1">
+            <div id="minbox">
+                <h2 id="quote" style="color:rgb(104, 69, 23)">Welcome To New Quotes</h2>
+            </div>
+            <div id="unknown">
+                <p id="unknown1">Amith</p>
+            </div>
+        </div>
+        <div id="box2">
+            <h1 id="btn">New Quotes</h1>
+        </div>
+    </div>
+
+</body>
+<script>
+    let realdata=""
+    const button=document.getElementById("btn")
+    const quotes=document.getElementById("quote")
+    const unknown=document.getElementById("unknown1")
+   
+    let quotesdata=""
+    const getnewquotes=()=>{
+        let rnum=Math.floor(Math.random()*50)
+        console.log(realdata[rnum].author)
+        quotesdata=realdata[rnum]
+        quotes.innerHTML=`${quotesdata.text}`
+        
+        quotesdata.author==null?(unknown.innerHTML=`Unknown`):unknown.innerHTML=`${quotesdata.author}`
+    }
+    button.addEventListener("click",getnewquotes)
+    const getquotes= async ()=>{
+
+        const api="https://type.fit/api/quotes"
+        try{
+                let data=await fetch(api)
+                 realdata=await data.json()
+                 getnewquotes()
+        }
+        catch(error){
+
+        }
+    }
+   
+    getquotes()
+</script>
+
+</html>

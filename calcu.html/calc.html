@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wekcome to calcultor</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #container {
+        height: 60vh;
+        width: 30%;
+        background-color: aqua;
+        border: 1px solid black;
+        margin-top: 10%;
+        padding: 4px 4px 4px 4px;
+      }
+      #row1 input {
+        height: 8vh;
+        width: 99.3%;
+      }
+      #row2,
+      #row3,
+      #row4,#row5 {
+        display: flex;
+        justify-content: space-around;
+        height: 7vh;
+        padding-top: 12px;
+      }
+      #row2 div {
+        width: 20%;
+        background: blueviolet;
+        color: white;
+        font-size: 40px;
+      }
+      #col2,
+      #col3,
+      #col4,
+      #col5,
+      #col6,
+      #col7,
+      #col8,
+      #col9,
+      #col10,
+      #col11,
+      #col12,#col13,#col14,#col15,#col16,#col17,#col18,#col19 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #row3 div {
+        width: 20%;
+        background: blueviolet;
+        color: white;
+        font-size: 40px;
+      }
+      #row4 div {
+        width: 20%;
+        background: blueviolet;
+        color: white;
+        font-size: 40px;
+      }
+      #row5 div {
+        width: 20%;
+        background: blueviolet;
+        color: white;
+        font-size: 40px;
+      }
+      #row6{
+        display: flex;
+        justify-content: space-evenly;
+        height: 12vh;
+        padding-top: 18px;
+      }
+      #row6 div {
+        width: 30%;
+        background: blueviolet;
+        color: white;
+        font-size: 40px;
+      }
+      
+
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="row1">
+        <input id="in" type="text" placeholder="Enter the input" />
+      </div>
+      <div id="row2">
+        <div id="col2" onclick="add('+')">+</div>
+        <div id="col3" onclick="add('-')">-</div>
+        <div id="col4" onclick="add('*')">*</div>
+        <div id="col4" onclick="add('/')">/</div>
+      </div>
+      <div id="row3">
+        <div id="col5" onclick="add('7')">7</div>
+        <div id="col6" onclick="add('8')">8</div>
+        <div id="col7" onclick="add('9')">9</div>
+        <div id="col8" onclick="add('^')">^</div>
+      </div>
+      <div id="row4">
+        <div id="col9" onclick="add('4')">4</div>
+        <div id="col10" onclick="add('5')">5</div>
+        <div id="col11" onclick="add('6')">6</div>
+        <div id="col12" onclick="sqrt('Math.sqrt(')">√</div>
+      </div>
+      <div id="row5">
+        <div id="col13" onclick="add('1')">1</div>
+        <div id="col14" onclick="add('2')">2</div>
+        <div id="col15" onclick="add('3')">3</div>
+        <div id="col16" onclick="exc('')">=</div>
+      </div>
+      <div id="row6">
+        <div id="col17" onclick="add('0')">0</div>
+        <div id="col18" onclick="add('.')">.</div>
+        <div id="col19" onclick="cls('c')">c</div>
+      </div>
+    </div>
+  </body>
+  <script>
+      let input=document.getElementById("in");
+      function add(v){
+          console.log(v)
+          input.value+=v
+      }
+      function exc(){
+          input.value=eval(input.value)
+      }
+      function cls(){
+          input.value=""
+      }
+      function sqrt(sq){
+          console.log(sq)
+          eval(Math.sqrt(input.value+=sq))
+          
+        
+      }
+  </script>
+</html>

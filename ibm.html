@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM CALCULATOR</title>
+</head>
+<style>
+    #main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #main h1 {
+        font-size: 50px;
+    }
+
+    #main1 {
+        display: flex;
+    }
+
+
+    #center {
+        background-color: blue;
+
+    }
+
+    #m1 {
+        padding-left: 16%;
+        padding-right: 35%;
+    }
+
+    #m1 input {
+        height: 50%;
+        width: 45%;
+        border: 2.8px solid black;
+    }
+
+    #m2 input {
+        height: 50%;
+        width: 45%;
+        border: 2.8px solid black;
+    }
+
+    #m4 {
+        padding-top: 5%;
+        padding-left: 35%;
+    }
+
+    #m4 h3 {
+        font-size: 20px;
+    }
+
+    #btn {
+        margin-left: -43%;
+        height: 48px;
+        width: 9%;
+        margin-top: 5%;
+        background: blue;
+        border: none;
+    }
+</style>
+
+<body>
+    <div id="main">
+        <h1>IBM CALCULATOR</h1>
+    </div>
+    <div id="main1">
+        <div id="m1">
+            <h2>ENTER YOUR HEIGHT:</h2>
+            <input id="height" type="number" placeholder="Enter the height">
+        </div>
+        <div id="m2">
+            <h2>ENTER YOUR WEIGHT:</h2>
+            <input id="weight" type="number" placeholder="Enter the weight">
+        </div>
+        <button id="btn">calculate</button>
+    </div>
+    <div id="m4">
+        <h3>THE RATIO OF YOUR HEIGHT TO WEIGHT IS:</h3>
+        <h2 id="hi" ></h2>
+        <p id="g" ></p>
+    </div>
+</body>
+    <script>
+        let btn=document.getElementById("btn");
+        btn.addEventListener("click",function(){
+            let weight=document.getElementById("weight").value;
+            let height=document.getElementById("height").value;
+            let mean=(weight/(0.305*height)**2);
+            document.getElementById("hi").innerHTML=mean;
+            if(mean<20){
+                document.getElementById("g").innerHTML="good IBM ratio"
+            }
+            else{
+                document.getElementById("g").innerHTML="need to maintain IBM ratio"
+            }
+        })
+    </script>
+</html>
